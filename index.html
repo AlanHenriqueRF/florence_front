@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Florence - Painel Gerencial</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <img src="florence-logo.jpeg" alt="Florence Logo" class="logo">
+            <h2>Florence</h2>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="#dashboard" class="nav-link active" data-section="dashboard">
+                    <i class="fas fa-chart-line"></i> Dashboard
+                </a></li>
+                <li><a href="#produtos" class="nav-link" data-section="produtos">
+                    <i class="fas fa-gem"></i> Produtos
+                </a></li>
+                <li><a href="#vendas" class="nav-link" data-section="vendas">
+                    <i class="fas fa-shopping-cart"></i> Vendas
+                </a></li>
+                <li><a href="#clientes" class="nav-link" data-section="clientes">
+                    <i class="fas fa-users"></i> Clientes
+                </a></li>
+                <li><a href="#categorias" class="nav-link" data-section="categorias">
+                    <i class="fas fa-tags"></i> Categorias
+                </a></li>
+                <li><a href="#estoque" class="nav-link" data-section="estoque">
+                    <i class="fas fa-boxes"></i> Estoque
+                </a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Mobile Menu Toggle -->
+    <div class="mobile-menu-toggle" id="mobileMenuToggle">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Header -->
+        <header class="header">
+            <h1 id="pageTitle">Dashboard</h1>
+            <div class="header-actions">
+                <button class="btn btn-primary" id="addNewBtn">
+                    <i class="fas fa-plus"></i> Adicionar
+                </button>
+                <div class="user-info">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Admin</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="content-section active">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>156</h3>
+                        <p>Total de Produtos</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>89</h3>
+                        <p>Vendas Este Mês</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>234</h3>
+                        <p>Clientes Ativos</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>R$ 45.280</h3>
+                        <p>Faturamento Mensal</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-charts">
+                <div class="chart-card">
+                    <h3>Vendas Recentes</h3>
+                    <div class="recent-sales">
+                        <div class="sale-item">
+                            <div class="sale-info">
+                                <strong>Anel de Ouro 18k</strong>
+                                <span>Maria Silva</span>
+                            </div>
+                            <div class="sale-value">R$ 2.500,00</div>
+                            <div class="sale-status status-paid">Pago</div>
+                        </div>
+                        <div class="sale-item">
+                            <div class="sale-info">
+                                <strong>Colar de Pérolas</strong>
+                                <span>Ana Costa</span>
+                            </div>
+                            <div class="sale-value">R$ 1.800,00</div>
+                            <div class="sale-status status-pending">Pendente</div>
+                        </div>
+                        <div class="sale-item">
+                            <div class="sale-info">
+                                <strong>Brincos de Esmeralda</strong>
+                                <span>Carla Santos</span>
+                            </div>
+                            <div class="sale-value">R$ 3.200,00</div>
+                            <div class="sale-status status-paid">Pago</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-card">
+                    <h3>Produtos com Estoque Baixo</h3>
+                    <div class="low-stock-items">
+                        <div class="stock-item">
+                            <span class="product-name">Anel de Noivado Solitário</span>
+                            <span class="stock-quantity low">1 unidade</span>
+                        </div>
+                        <div class="stock-item">
+                            <span class="product-name">Brincos de Esmeralda</span>
+                            <span class="stock-quantity low">2 unidades</span>
+                        </div>
+                        <div class="stock-item">
+                            <span class="product-name">Relógio Feminino Dourado</span>
+                            <span class="stock-quantity out">Esgotado</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Produtos Section -->
+        <section id="produtos" class="content-section">
+            <div class="section-header">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Buscar produtos..." id="searchProducts">
+                </div>
+                <div class="filters">
+                    <select id="categoryFilter">
+                        <option value="">Todas as Categorias</option>
+                        <option value="aneis">Anéis</option>
+                        <option value="colares">Colares</option>
+                        <option value="brincos">Brincos</option>
+                        <option value="pulseiras">Pulseiras</option>
+                        <option value="relogios">Relógios</option>
+                    </select>
+                    <select id="statusFilter">
+                        <option value="">Todos os Status</option>
+                        <option value="disponivel">Disponível</option>
+                        <option value="esgotado">Esgotado</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Produto</th>
+                            <th>Categoria</th>
+                            <th>Preço</th>
+                            <th>Estoque</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>001</td>
+                            <td>
+                                <div class="product-info">
+                                    <strong>Anel de Ouro 18k com Diamante</strong>
+                                    <small>Anel elegante com diamante central</small>
+                                </div>
+                            </td>
+                            <td><span class="category-tag">Anéis</span></td>
+                            <td class="price">R$ 2.500,00</td>
+                            <td><span class="stock-badge good">5</span></td>
+                            <td><span class="status-badge available">Disponível</span></td>
+                            <td class="actions">
+                                <button class="btn-icon" title="Visualizar"><i class="fas fa-eye"></i></button>
+                                <button class="btn-icon" title="Editar"><i class="fas fa-edit"></i></button>
+                                <button class="btn-icon" title="Excluir"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>002</td>
+                            <td>
+                                <div class="product-info">
+                                    <strong>Colar de Pérolas Naturais</strong>
+                                    <small>Colar sofisticado com pérolas naturais</small>
+                                </div>
+                            </td>
+                            <td><span class="category-tag">Colares</span></td>
+                            <td class="price">R$ 1.800,00</td>
+                            <td><span class="stock-badge good">3</span></td>
+                            <td><span class="status-badge available">Disponível</span></td>
+                            <td class="actions">
+                                <button class="btn-icon" title="Visualizar"><i class="fas fa-eye"></i></button>
+                                <button class="btn-icon" title="Editar"><i class="fas fa-edit"></i></button>
+                                <button class="btn-icon" title="Excluir"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>003</td>
+                            <td>
+                                <div class="product-info">
+                                    <strong>Brincos de Esmeralda com Ouro Branco</strong>
+                                    <small>Brincos refinados com esmeraldas</small>
+                                </div>
+                            </td>
+                            <td><span class="category-tag">Brincos</span></td>
+                            <td class="price">R$ 3.200,00</td>
+                            <td><span class="stock-badge low">2</span></td>
+                            <td><span class="status-badge available">Disponível</span></td>
+                            <td class="actions">
+                                <button class="btn-icon" title="Visualizar"><i class="fas fa-eye"></i></button>
+                                <button class="btn-icon" title="Editar"><i class="fas fa-edit"></i></button>
+                                <button class="btn-icon" title="Excluir"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>004</td>
+                            <td>
+                                <div class="product-info">
+                                    <strong>Relógio Feminino Dourado</strong>
+                                    <small>Relógio elegante com acabamento dourado</small>
+                                </div>
+                            </td>
+                            <td><span class="category-tag">Relógios</span></td>
+                            <td class="price">R$ 2.800,00</td>
+                            <td><span class="stock-badge out">0</span></td>
+                            <td><span class="status-badge unavailable">Esgotado</span></td>
+                            <td class="actions">
+                                <button class="btn-icon" title="Visualizar"><i class="fas fa-eye"></i></button>
+                                <button class="btn-icon" title="Editar"><i class="fas fa-edit"></i></button>
+                                <button class="btn-icon" title="Excluir"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Vendas Section -->
+        <section id="vendas" class="content-section">
+            <div class="section-header">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Buscar vendas..." id="searchSales">
+                </div>
+                <div class="filters">
+                    <select id="paymentStatusFilter">
+                        <option value="">Todos os Status</option>
+                        <option value="pago">Pago</option>
+                        <option value="pendente">Pendente</option>
+                        <option value="cancelado">Cancelado</option>
+                    </select>
+                    <input type="date" id="dateFilter">
+                </div>
+            </div>
+
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Cliente</th>
+                            <th>Data</th>
+                            <th>Valor Total</th>
+                            <th>Pagamento</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>V001</td>
+                            <td>
+                                <div class="client-info">
+                                    <strong>Maria Silva</strong>
+                                    <small>maria@email.com</small>
+                                </div>
+                            </td>
+                            <td>07/08/2025</td>
+                            <td class="price">R$ 2.500,00</td>
+                            <td>Cartão de Crédito</td>
+                            <td><span class="status-badge paid">Pago</span></td>
+                            <td class="actions">
+                                <button class="btn-icon" title="Visualizar"><i class="fas fa-eye"></i></button>
+                                <button class="btn-icon" title="Imprimir"><i class="fas fa-print"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>V002</td>
+                            <td>
+                                <div class="client-info">
+                                    <strong>Ana Costa</strong>
+                                    <small>ana@email.com</small>
+                                </div>
+                            </td>
+                            <td>06/08/2025</td>
+                            <td class="price">R$ 1.800,00</td>
+                            <td>PIX</td>
+                            <td><span class="status-badge pending">Pendente</span></td>
+                            <td class="actions">
+                                <button class="btn-icon" title="Visualizar"><i class="fas fa-eye"></i></button>
+                                <button class="btn-icon" title="Imprimir"><i class="fas fa-print"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>V003</td>
+                            <td>
+                                <div class="client-info">
+                                    <strong>Carla Santos</strong>
+                                    <small>carla@email.com</small>
+                                </div>
+                            </td>
+                            <td>05/08/2025</td>
+                            <td class="price">R$ 3.200,00</td>
+                            <td>Dinheiro</td>
+                            <td><span class="status-badge paid">Pago</span></td>
+                            <td class="actions">
+                                <button class="btn-icon" title="Visualizar"><i class="fas fa-eye"></i></button>
+                                <button class="btn-icon" title="Imprimir"><i class="fas fa-print"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Clientes Section -->
+        <section id="clientes" class="content-section">
+            <div class="section-header">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Buscar clientes..." id="searchClients">
+                </div>
+            </div>
+
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>Email</th>
+                            <th>Telefone</th>
+                            <th>Endereço</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>C001</td>
+                            <td>
+                                <div class="client-info">
+                                    <strong>Maria Silva</strong>
+                                    <small>Cliente desde 2023</small>
+                                </div>
+                            </td>
+                            <td>maria@email.com</td>
+                            <td>(11) 99999-1111</td>
+                            <td>São Paulo, SP</td>
+                            <td class="actions">
+                                <button class="btn-icon" title="Visualizar"><i class="fas fa-eye"></i></button>
+                                <button class="btn-icon" title="Editar"><i class="fas fa-edit"></i></button>
+                                <button class="btn-icon" title="Histórico"><i class="fas fa-history"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>C002</td>
+                            <td>
+                                <div class="client-info">
+                                    <strong>Ana Costa</strong>
+                                    <small>Cliente desde 2024</small>
+                                </div>
+                            </td>
+                            <td>ana@email.com</td>
+                            <td>(11) 99999-2222</td>
+                            <td>Rio de Janeiro, RJ</td>
+                            <td class="actions">
+                                <button class="btn-icon" title="Visualizar"><i class="fas fa-eye"></i></button>
+                                <button class="btn-icon" title="Editar"><i class="fas fa-edit"></i></button>
+                                <button class="btn-icon" title="Histórico"><i class="fas fa-history"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>C003</td>
+                            <td>
+                                <div class="client-info">
+                                    <strong>Carla Santos</strong>
+                                    <small>Cliente desde 2024</small>
+                                </div>
+                            </td>
+                            <td>carla@email.com</td>
+                            <td>(11) 99999-3333</td>
+                            <td>Belo Horizonte, MG</td>
+                            <td class="actions">
+                                <button class="btn-icon" title="Visualizar"><i class="fas fa-eye"></i></button>
+                                <button class="btn-icon" title="Editar"><i class="fas fa-edit"></i></button>
+                                <button class="btn-icon" title="Histórico"><i class="fas fa-history"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Categorias Section -->
+        <section id="categorias" class="content-section">
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-ring"></i>
+                    </div>
+                    <h3>Anéis</h3>
+                    <p>45 produtos</p>
+                    <div class="category-actions">
+                        <button class="btn btn-sm">Editar</button>
+                        <button class="btn btn-sm btn-outline">Ver Produtos</button>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-necklace"></i>
+                    </div>
+                    <h3>Colares</h3>
+                    <p>32 produtos</p>
+                    <div class="category-actions">
+                        <button class="btn btn-sm">Editar</button>
+                        <button class="btn btn-sm btn-outline">Ver Produtos</button>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-earrings"></i>
+                    </div>
+                    <h3>Brincos</h3>
+                    <p>28 produtos</p>
+                    <div class="category-actions">
+                        <button class="btn btn-sm">Editar</button>
+                        <button class="btn btn-sm btn-outline">Ver Produtos</button>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-bracelet"></i>
+                    </div>
+                    <h3>Pulseiras</h3>
+                    <p>23 produtos</p>
+                    <div class="category-actions">
+                        <button class="btn btn-sm">Editar</button>
+                        <button class="btn btn-sm btn-outline">Ver Produtos</button>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Relógios</h3>
+                    <p>18 produtos</p>
+                    <div class="category-actions">
+                        <button class="btn btn-sm">Editar</button>
+                        <button class="btn btn-sm btn-outline">Ver Produtos</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Estoque Section -->
+        <section id="estoque" class="content-section">
+            <div class="stock-alerts">
+                <div class="alert alert-warning">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <span>3 produtos com estoque baixo</span>
+                </div>
+                <div class="alert alert-danger">
+                    <i class="fas fa-times-circle"></i>
+                    <span>1 produto esgotado</span>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Produto</th>
+                            <th>Categoria</th>
+                            <th>Estoque Atual</th>
+                            <th>Estoque Mínimo</th>
+                            <th>Status</th>
+                            <th>Última Movimentação</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Anel de Ouro 18k com Diamante</td>
+                            <td>Anéis</td>
+                            <td><span class="stock-badge good">5</span></td>
+                            <td>3</td>
+                            <td><span class="status-badge available">Normal</span></td>
+                            <td>05/08/2025</td>
+                            <td class="actions">
+                                <button class="btn-icon" title="Ajustar Estoque"><i class="fas fa-edit"></i></button>
+                                <button class="btn-icon" title="Histórico"><i class="fas fa-history"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Brincos de Esmeralda</td>
+                            <td>Brincos</td>
+                            <td><span class="stock-badge low">2</span></td>
+                            <td>3</td>
+                            <td><span class="status-badge warning">Baixo</span></td>
+                            <td>04/08/2025</td>
+                            <td class="actions">
+                                <button class="btn-icon" title="Ajustar Estoque"><i class="fas fa-edit"></i></button>
+                                <button class="btn-icon" title="Histórico"><i class="fas fa-history"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Relógio Feminino Dourado</td>
+                            <td>Relógios</td>
+                            <td><span class="stock-badge out">0</span></td>
+                            <td>2</td>
+                            <td><span class="status-badge unavailable">Esgotado</span></td>
+                            <td>02/08/2025</td>
+                            <td class="actions">
+                                <button class="btn-icon" title="Ajustar Estoque"><i class="fas fa-edit"></i></button>
+                                <button class="btn-icon" title="Histórico"><i class="fas fa-history"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
