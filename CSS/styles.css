@@ -7,20 +7,20 @@
     --florence-text: #666666;
     --florence-light: #F0E6E6;
     --florence-border: #E6D6D6;
-    
+
     --success: #4CAF50;
     --warning: #FFC107;
     --danger: #F44336;
     --info: #2196F3;
-    
+
     --white: #FFFFFF;
     --black: #333333;
     --gray-light: #F5F5F5;
     --gray-medium: #CCCCCC;
-    
+
     --sidebar-width: 260px;
     --header-height: 70px;
-    
+
     --border-radius: 8px;
     --box-shadow: 0 2px 10px rgba(163, 139, 93, 0.1);
     --transition: all 0.3s ease;
@@ -73,6 +73,13 @@ body {
     color: var(--florence-accent);
     font-size: 1.5rem;
     font-weight: 600;
+}
+
+.notification-close {
+    border: none;
+    background-color: transparent;
+    box-shadow: none;
+    outline: none;
 }
 
 .sidebar-nav ul {
@@ -654,16 +661,16 @@ body {
     .dashboard-charts {
         grid-template-columns: 1fr;
     }
-    
+
     .section-header {
         flex-direction: column;
         align-items: stretch;
     }
-    
+
     .filters {
         justify-content: stretch;
     }
-    
+
     .filters select,
     .filters input {
         flex: 1;
@@ -674,47 +681,47 @@ body {
     .sidebar {
         transform: translateX(-100%);
     }
-    
+
     .sidebar.active {
         transform: translateX(0);
     }
-    
+
     .main-content {
         margin-left: 0;
     }
-    
+
     .mobile-menu-toggle {
         display: flex;
     }
-    
+
     .header {
         padding: 0 20px 0 80px;
     }
-    
+
     .content-section {
         padding: 20px;
     }
-    
+
     .stats-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .categories-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .stock-alerts {
         flex-direction: column;
     }
-    
+
     .table-container {
         overflow-x: auto;
     }
-    
+
     .data-table {
         min-width: 600px;
     }
-    
+
     .actions {
         flex-wrap: wrap;
     }
@@ -724,34 +731,33 @@ body {
     .header h1 {
         font-size: 1.4rem;
     }
-    
+
     .header-actions {
         gap: 10px;
     }
-    
+
     .btn {
         padding: 8px 15px;
         font-size: 0.8rem;
     }
-    
+
     .stat-card {
         padding: 20px;
         flex-direction: column;
         text-align: center;
     }
-    
+
     .chart-card {
         padding: 20px;
     }
-    
+
     .category-card {
         padding: 20px;
     }
-    
+
     .data-table th,
     .data-table td {
         padding: 10px;
         font-size: 0.8rem;
     }
 }
-

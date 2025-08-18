@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Florence - Painel Gerencial</title>
-    <link rel="stylesheet" href="./CSS/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Righteous&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap"
+        rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./CSS/reset.css">
+    <link rel="stylesheet" href="./CSS/styles.css">
+    <link rel="stylesheet" href="./CSS/modal.css">
 </head>
+
 <body>
     <!-- Sidebar -->
     <div class="sidebar" id="sidebar">
@@ -14,27 +23,27 @@
             <img src="./img/florence-logo.jpeg" alt="Florence Logo" class="logo">
             <h2>Florence</h2>
         </div>
-        
+
         <nav class="sidebar-nav">
             <ul>
                 <li><a href="#dashboard" class="nav-link active" data-section="dashboard">
-                    <i class="fas fa-chart-line"></i> Dashboard
-                </a></li>
+                        <i class="fas fa-chart-line"></i> Dashboard
+                    </a></li>
                 <li><a href="#produtos" class="nav-link" data-section="produtos">
-                    <i class="fas fa-gem"></i> Produtos
-                </a></li>
+                        <i class="fas fa-gem"></i> Produtos
+                    </a></li>
                 <li><a href="#vendas" class="nav-link" data-section="vendas">
-                    <i class="fas fa-shopping-cart"></i> Vendas
-                </a></li>
+                        <i class="fas fa-shopping-cart"></i> Vendas
+                    </a></li>
                 <li><a href="#clientes" class="nav-link" data-section="clientes">
-                    <i class="fas fa-users"></i> Clientes
-                </a></li>
+                        <i class="fas fa-users"></i> Clientes
+                    </a></li>
                 <li><a href="#categorias" class="nav-link" data-section="categorias">
-                    <i class="fas fa-tags"></i> Categorias
-                </a></li>
+                        <i class="fas fa-tags"></i> Categorias
+                    </a></li>
                 <li><a href="#estoque" class="nav-link" data-section="estoque">
-                    <i class="fas fa-boxes"></i> Estoque
-                </a></li>
+                        <i class="fas fa-boxes"></i> Estoque
+                    </a></li>
             </ul>
         </nav>
     </div>
@@ -356,7 +365,7 @@
         </section>
 
         <!-- Clientes Section -->
-        <section id="clientes" class="content-section">
+        <section id="clientes" class="content-section" onclick="">
             <div class="section-header">
                 <div class="search-bar">
                     <i class="fas fa-search"></i>
@@ -562,8 +571,52 @@
             </div>
         </section>
     </div>
+    <!-- Botão para abrir a modal -->
+    <button class="btn btn-primary" onclick="openModal()">+ Novo Cliente</button>
 
+    <!-- Modal -->
+    <div class="modal" id="clientModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Novo Cliente</h2>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+
+            <form class="modal-form">
+                <div class="form-group">
+                    <label for="nome">Nome completo</label>
+                    <input type="text" id="nome" name="nome" placeholder="Digite o nome" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="exemplo@email.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="telefone">Telefone</label>
+                    <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000">
+                </div>
+
+                <div class="form-group">
+                    <label for="endereco">Endereço</label>
+                    <input type="text" id="endereco" name="endereco" placeholder="Rua, número, bairro">
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-outline" onclick="closeModal()">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <script src="./JS/modal.js"></script>
+    <script src="./JS/notificacao.js"></script>
+    <script src="./JS/handle.js"></script>
+    <script src="./JS/clientes.js"></script>
     <script src="./JS/script.js"></script>
 </body>
-</html>
 
+</html>
